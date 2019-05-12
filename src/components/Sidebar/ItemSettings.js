@@ -3,16 +3,18 @@ import { ListGroupItem, Input, InputGroup, InputGroupButtonDropdown, DropdownTog
 import Pokedex from 'pokedex-promise-v2';
 import { formatName } from '../../library/utilities';
 
+const styles = {
+    // background: '#d8d8d8'
+}
+
+
 class ItemSettings extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pokedexs: [],
-            input: '',
-            dropdown: false
-        }
-    }    
+    state = {
+        pokedexs: [],
+        input: '',
+        dropdown: false
+    }
 
     async componentDidMount() {
         let dexs = await this.gatherAllPokedexs();
@@ -44,9 +46,10 @@ class ItemSettings extends Component {
                         autoComplete = "off" 
                         placeholder = "Search" 
                         onChange = {e => applyFilter(e.target.value)} 
+                        style = {styles}
                     />
                     <InputGroupButtonDropdown addonType="append" isOpen={dropdown} toggle={this.toggleDropdown}>
-                        <DropdownToggle color='info' caret> Dex </DropdownToggle>
+                        <DropdownToggle color='info' caret> Pokedex </DropdownToggle>
                         <DropdownMenu>
                             {pokedexs.map( dex => (
                                 <DropdownItem 

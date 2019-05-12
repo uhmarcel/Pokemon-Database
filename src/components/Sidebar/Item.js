@@ -36,7 +36,7 @@ class Item extends Component {
     }
 
     componentDidMount() {
-        this.props.onLoad();
+        //this.props.onLoad();
     }
 
     toggle = () => {

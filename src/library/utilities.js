@@ -60,7 +60,7 @@ export function getTypeColor(type) {
         case 'flying':   return '#7AA5FF';
         case 'electric': return '#FDE63C';
         case 'fairy':    return '#F9AEFF';
-        default:         return '#E9ECEF';
+        default:         return '#rgba(0,0,0,0)';
     }
 }
 

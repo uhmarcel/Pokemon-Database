@@ -20,7 +20,7 @@ class PokeReview extends Component {
 
     render() {
         const types = this.props.types;
-        const display = types ? types.map(t => t.type.name) : [];
+        const display = types ? types.map(t => t.type.name) : ['load'];
 
         return (  
             <Row>
