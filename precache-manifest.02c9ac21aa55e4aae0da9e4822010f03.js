@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/Pokemon-Database/static/js/runtime~main.d9a7a75b.js"
   },
   {
-    "revision": "04ffd9a506377d87cc28",
-    "url": "/Pokemon-Database/static/js/main.ef7cf2cf.chunk.js"
+    "revision": "b1e5911d38a87a368ddf",
+    "url": "/Pokemon-Database/static/js/main.2f35bb00.chunk.js"
   },
   {
     "revision": "b907345c64926c173c8a",
     "url": "/Pokemon-Database/static/js/2.7b3bec89.chunk.js"
   },
   {
-    "revision": "04ffd9a506377d87cc28",
+    "revision": "b1e5911d38a87a368ddf",
     "url": "/Pokemon-Database/static/css/main.bc32f7f4.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/Pokemon-Database/static/css/2.844b0a36.chunk.css"
   },
   {
-    "revision": "c2e1b08b20e4c879fd5788c60c87eb71",
+    "revision": "39453ee7393b43bf4641d383fb7dfb88",
     "url": "/Pokemon-Database/index.html"
   }
 ];
