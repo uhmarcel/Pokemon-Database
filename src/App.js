@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import NavBar from './components/NavBar';
 import MainPage from './pages/MainPage';
+// import NavBar from './components/NavBar';
 
 
 class App extends Component {

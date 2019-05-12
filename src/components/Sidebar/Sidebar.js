@@ -25,7 +25,6 @@ class Sidebar extends Component {
     }
 
     applyPokedex = async (pokedex) => {
-        console.log(pokedex);
         let pokes = await this.gatherPokesByPokedex(pokedex);
         this.setState({pokemons: pokes, filtered: pokes});
     }
@@ -54,9 +53,11 @@ class Sidebar extends Component {
             <Fragment>
                 <ItemSettings 
                     applyPokedex={applyPokedex}
-                    applyFilter={applyFilter}/>
+                    applyFilter={applyFilter}
+                />
                 <ItemList 
-                    pokemons={filtered}/>
+                    pokemons={filtered}
+                />
             </Fragment>
         )
     }

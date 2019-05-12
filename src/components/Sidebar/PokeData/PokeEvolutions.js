@@ -10,6 +10,19 @@ const arrowStyles = {
 }
 
 class PokeEvolutions extends Component {
+    
+    state = {
+        loaded: false
+    }
+
+    componentDidUpdate() {
+        const {evolutions, onLoad} = this.props;
+        const {loaded} = this.state;
+        if (!loaded && evolutions.evolutions) {
+            this.setState({loaded: true})
+            onLoad();
+        }
+    }
 
     render() {
         const base = this.props.evolutions.base;

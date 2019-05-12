@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Pokedex from 'pokedex-promise-v2';
 import Item from './Item';
 import { getID } from '../../library/utilities';
 import { Fade } from 'reactstrap';
@@ -60,7 +59,7 @@ class ItemList extends Component {
                                 scrollToIndex = {this.state.focusIndex}
                             />
                         )}
-                    </AutoSizer>>
+                    </AutoSizer>
                 </div>
             </Fade>
         )

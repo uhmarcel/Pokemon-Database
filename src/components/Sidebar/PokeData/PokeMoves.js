@@ -5,6 +5,19 @@ import Type from '../../Utilities/Type';
 
 class PokeMoves extends Component {
     
+    state = {
+        loaded: false
+    }
+
+    componentDidUpdate() {
+        const {moveset, onLoad} = this.props;
+        const {loaded} = this.state;
+        if (!loaded && moveset) {
+            this.setState({loaded: true})
+            onLoad();
+        }
+    }
+
     render() {
         const moveset = this.props.moveset; // {name, lvl, url}
         

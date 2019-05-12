@@ -2,10 +2,22 @@ import React, { Component, Fragment } from 'react';
 import { Progress } from 'reactstrap';
 
 class PokeStats extends Component {
+    
+    state = {
+        loaded: false
+    }
+
+    componentDidUpdate() {
+        const {stats, onLoad} = this.props;
+        const {loaded} = this.state;
+        if (!loaded && stats[0]) {
+            this.setState({loaded: true})
+            onLoad();
+        }
+    }
 
     render() {
         const stats = this.props.stats;
-        
         const display = stats[0] ? stats.map(s => s.base_stat) : Array(6);
         const maxStat = 150;
 

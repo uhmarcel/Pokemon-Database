@@ -4,12 +4,23 @@ import Type from '../../Utilities/Type';
 
 
 class PokeReview extends Component {
+    
+    state = {
+        loaded: false
+    }
+
+    componentDidUpdate() {
+        const {types, onLoad} = this.props;
+        const {loaded} = this.state;
+        if (!loaded && types) {
+            this.setState({loaded: true})
+            onLoad();
+        }
+    }
 
     render() {
         const types = this.props.types;
-
         const display = types ? types.map(t => t.type.name) : [];
-        const show = types ? true : false;
 
         return (  
             <Row>

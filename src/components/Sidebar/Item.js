@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { ListGroupItem, Row, Col, Collapse } from 'reactstrap';
 import Pokedex from 'pokedex-promise-v2';
 
@@ -26,24 +26,20 @@ const imgStyle = {
 
 class Item extends Component {
 
-    constructor(props) {
-        super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = { 
-            collapse: false,
-            data: {
-                stats: [],
-                textEntry: '',
-                evolutions: []
-            }
-        };
-    }  
+    state = { 
+        collapse: false,
+        data: {
+            stats: [],
+            textEntry: '',
+            evolutions: []
+        }
+    }
 
     componentDidMount() {
         this.props.onLoad();
     }
 
-    toggle() {
+    toggle = () => {
         if (!this.state.data.entryText) {
             this.gatherPokeData(this.props.id)
             .then(data => this.setState({data}));
@@ -57,22 +53,6 @@ class Item extends Component {
         const img = getImageByID(this.props.id);
         const name = capitalize(this.props.name);
         const entryNumber = this.props.entry;
-
-        let pokeData = '';
-        if (this.state.collapse || 1===1) {
-            pokeData = 
-                <Fragment>
-                    <PokeReview types={types}/>
-                    <br/>
-                    <PokeStats stats={stats} />
-                    <br/>
-                    <PokeEntry entryText={entryText} />
-                    <br/>
-                    <PokeEvolutions evolutions={evolutions} />
-                    <br/>
-                    <PokeMoves moveset={moveset}/>
-                </Fragment>
-        }
 
         return (
             <ListGroupItem action style={itemStyle} onClick={this.toggle}>
@@ -96,7 +76,15 @@ class Item extends Component {
                     onExited={this.props.onLoad}
                     onExiting={this.remeasureItem}
                 >
-                    {pokeData}
+                    <PokeReview types={types} onLoad={this.remeasureItem}/>
+                    <br/>
+                    <PokeStats stats={stats} onLoad={this.remeasureItem}/>
+                    <br/>
+                    <PokeEntry entryText={entryText} onLoad={this.remeasureItem}/>
+                    <br/>
+                    <PokeEvolutions evolutions={evolutions} onLoad={this.remeasureItem}/>
+                    <br/>
+                    <PokeMoves moveset={moveset} onLoad={this.remeasureItem}/>
                     <br/>
                 </Collapse>       
             </ListGroupItem>
